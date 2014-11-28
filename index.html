@@ -1,11 +1,26 @@
 ---
 layout: default
-title: Alex_Sherman
+title: Well It Works
+subtitle: It must be right!
 ---
     
 <h2 id="about-me">About Me</h2>
 
-<p>Currently I’m a graduate student and researcher at the University of Wisconsin Madison.</p>
+<p>Currently I’m a graduate student and researcher at the University of Wisconsin Madison.
+My research is in the area of mobile networking. I work with Suman Banerjee on his WiRover project
+which aims to provide internet connectivity to mobile nodes utilizing multiple cellular interfaces.</p>
+<p>I have taken advanced classes in networking, mobile networking, computer architecture, physics and calculus.
+I am interested in the fields of multipath networking, distributed computing and unstructured networks.</p>
+
+<h2 id="projects">Projects</h2>
+
+<ul>
+  {% for project in site.projects %}
+    <li>
+      <a href="{{ project.url }}">{{ project.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
 <h2 id="recent-posts">Recent Posts</h2>
 

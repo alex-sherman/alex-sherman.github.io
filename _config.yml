@@ -1,1 +1,5 @@
 pygments: true
+
+collections:
+  projects:
+    output: true
