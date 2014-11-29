@@ -24,7 +24,9 @@ h2 {
   font-size: 24px;
   line-height: 36px;
 }
-
+.brand {
+  font-size: 24px;
+}
 /* The white background content wrapper */
 .content {
   background-color: #fff;
@@ -55,6 +57,10 @@ h2 {
   float:left;
   display:block;
 }
+.topbar a:hover{
+  background-color: #282223;
+  text-decoration: none;
+}
 
 .light-over {
   line-height: 30px;
@@ -67,6 +73,11 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.hide-links a {
+  color: inherit;
+}
+
 footer div {
   text-align: center;
 }

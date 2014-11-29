@@ -1,0 +1,14 @@
+---
+layout: default
+title: Projects
+subtitle: Things I've Done
+---
+
+{% for project in site.projects %}
+<div class="row">
+    <div class="span12 hide-links">
+        <a href="{{ project.url }}"><h2>{{ project.title }}</h2>
+        <p>{{ project.content | strip_html | truncatewords: 50 }}</p></a>
+    </div>
+</div>
+{% endfor %}
