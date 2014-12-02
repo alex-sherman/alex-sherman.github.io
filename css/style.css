@@ -68,16 +68,21 @@ h2 {
   text-align: center;
   color: white;
   background-color: #181213;
-  opacity: .5;
+  opacity: .75;
   display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .hide-links a {
   color: inherit;
 }
+.no-underline{
+  text-decoration: none;
+}
 
-footer div {
+footer {
   text-align: center;
+}
+footer > * {
+  padding-left: 10px;
+  padding-right: 10px;
 }
