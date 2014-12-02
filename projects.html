@@ -7,8 +7,8 @@ subtitle: Things I've Done
 {% for project in site.projects %}
 <div class="row-fluid">
     <div class="col-xs-12 hide-links">
-        <a href="{{ project.url }}"><h2>{{ project.title }}</h2>
-        <p>{{ project.content | strip_html | truncatewords: 50 }}</p></a>
+        <a href="{{ project.url }}"><h2>{{ project.title }}</h2></a>
+        <p>{{ project.content | strip_html | truncatewords: 50 }}</p>
     </div>
 </div>
 {% endfor %}

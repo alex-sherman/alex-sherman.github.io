@@ -9,6 +9,7 @@ html, body {
 h1, h2 {
   margin: 0;
   padding: 0;
+  display: inline;
 }
 h1 {
   font-size: 30px;
@@ -23,8 +24,9 @@ h1 small {
 h2 {
   font-size: 24px;
   line-height: 36px;
+  display: inline;
 }
-.brand {
+.navbar-brand {
   font-size: 24px;
   float: left;
 }
@@ -45,45 +47,40 @@ h2 {
   margin: 0 -20px 20px;
   border-radius: 5px 5px 0 0;
 }
-#large-topbar {
-  text-align: right;
+nav {
+  text-align: left;
 }
-#large-topbar a{
-  float: left;
-}
-.topbar {
+.navbar {
   margin-bottom: 10px;
+  border-radius: 0;
 }
-.topbar ul {
+.navbar ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-.topbar .navbar-collapse {
+.navbar-collapse {
   border-width: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   padding: 0;
 }
-
-.topbar a{
-  color: #bfbfbf;
-  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
-  padding:8px 10px 12px;
-  display:block;
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
+  color: #ccc;
+  background-color: inherit;
 }
-.topbar a:hover{
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover{
   background-color: #282223;
   text-decoration: none;
+  color: #ccc;
 }
 
-.light-over {
+.light-over, .navbar-default {
   line-height: 30px;
   margin-top: 17px;
   color: white;
-  background-color: #181213;
+  background-color: #161213;
   opacity: .75;
-  display: inline-block;
   border-width: 0px;
 }
 
@@ -100,4 +97,5 @@ footer {
 footer > * {
   padding-left: 10px;
   padding-right: 10px;
+  display: inline-block;
 }
