@@ -1,16 +1,13 @@
 ---
 layout: default
-title: Python-JRPC
-subtitle: A simple remote procedure call framework for Python
+title: Python-JRPC and libjrpc
+subtitle: A simple remote procedure call framework for Python and C
 ---
 
 {{ content }}
 
-[Python-JRPC is available on Github](https://alex-sherman.github.io/python-jrpc) as open source software. I wrote this framework to solve
-some needs we have at my work and thought it might be used else where.
+[Python-JRPC](https://alex-sherman.github.io/python-jrpc) and [libjrpc](https://alex-sherman.github.io/libjrpc) are available on Github as open source software.
 
-Motivation
+Overview
 ---
-I aim only to provide a simple way to describe your networked applications. In this framework a server is simply a python class
-exposing some public methods that proxy objects can call locally in client applications. The goal was to make network programming
-like regular programming. You work only in describing your classes/logic, and throwing/handling exceptions.
+This framework can be used to provide a simple way to describe your networked applications. RPC protocols allow programs to execute code on remote machines by calling remote procedures. JRPC is a specific RPC protocol where all communication is serialized in JSON. The libraries I've written implement JRPC for Python and C. The point of these libraries is to make network application development much simpler than dealing with low level socket APIs. The goal is to allow developers to focus on adding functionality to their applications rather than worrying about defining protocols and client-server interactions.
