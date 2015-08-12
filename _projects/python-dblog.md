@@ -23,12 +23,12 @@ The DBlog system is composed of three main parts
 From the bottom up, an application wishing to log data will instantiate a Logger object, and point it at a running LoggingService on the local machine.
 Then the client can log data like so:
 
-```python
+{% highlight ruby %}
 proxy = jrpc.service.SocketProxy(9999, timeout = 5)
 logger = dblog.Logger(proxy.log)
 logger.info("Thermometer service started")
 logger.log("Temperature", 45, tags = {"season": "fall"})
-```
+{% endhighlight %}
 
 The Logger object calls on the LoggingService which is responsible for knowing the current log level of the system, and storing any log lines that meet the log level criteria to the database server.
 It's also responsible for caching and ensuring that the log lines actually do make it to the database even in the event of power failure or network outage.
