@@ -99,3 +99,9 @@ footer > * {
   padding-right: 10px;
   display: inline-block;
 }
+
+@media (min-width: 1200px) {
+  .container {
+      width: 970px;
+  }
+}

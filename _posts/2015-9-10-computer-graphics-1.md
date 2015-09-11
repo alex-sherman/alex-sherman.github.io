@@ -11,8 +11,8 @@ programmers out there.
 
 All of this tutorial will be in Javscript (I know gross), but the upside is you'll be able to edit it straight in these pages and see what happens.
 Additionally I will try to limit myself to not using *any* third party libraries. The tutorial will only make use of standard Javscript functionality
-like canvas and all the other work will be done by in the tutorial. So let's get right into it and take a look at canvas.
-
+like canvas and all the other work will be done by in the tutorial. I also expect people reading this to be relatively familiar with basic geomtry and math,
+like how we would describe points in 2D and 3D. That's enough intro, let's get right into it and take a look at canvas.
 
 Canvas
 --------
