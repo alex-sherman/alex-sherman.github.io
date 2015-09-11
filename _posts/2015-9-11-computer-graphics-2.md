@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Simple Computer Graphics Part 2 (Vectors)
-subtitle: Understanding points and distances in space
+subtitle: Points and distances in space
 ---
 
 Vectors are going to do a lot for us, we can describe points with them, distances between points and some other stuff we'll get to later.
