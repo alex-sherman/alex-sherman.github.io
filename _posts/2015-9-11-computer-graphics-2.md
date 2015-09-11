@@ -1,17 +1,23 @@
 ---
 layout: default
-title: Simple Computer Graphics Part 2 (Vectors and Transforms)
-subtitle: Understanding how we can describe space
+title: Simple Computer Graphics Part 2 (Vectors)
+subtitle: Understanding points and distances in space
 ---
 
-This is usually the part of computer graphics where people start talking about linear algebra and matrix transposes and inversions and people's eyes start
-to glaze over. Well I have no clue what any of that is so hopefully I'll be able to cover this rather mathy faffy subject in a way that still makes sense.
-Instead of messing around with a bunch of math, I'm just going to quickly walk through what will become our vector.js file and then do some example uses of vectors.
+Vectors are going to do a lot for us, we can describe points with them, distances between points and some other stuff we'll get to later.
+Here's how vectors work.
 
 Vector.js
 ==========
 
 {% include_relative graphics/vector.html %}
 
-Let's go through this really quick and then get to some examples.
-Firstly a vector is comprised of x y and z values (let's just ignore w for now it'll come up later). We allow any of these to be excluded in the constructor with that derpy ternary operator thing.
+
+Example
+==========
+Let's repeat the previous example but draw the line in thirds and three different colors, red, green and blue. We'll do some dividing
+and adding of vectors.
+
+{% include_relative graphics/vector_canvas.html %}
+
+Next: Matrix Transforms
