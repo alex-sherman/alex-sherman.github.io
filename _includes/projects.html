@@ -1,0 +1,16 @@
+{% for project in site.projects %}
+<div class="row-fluid">
+    <div class="col-xs-12 col-sm-4 col-md-3 hide-links">
+        {% if project.link_url %}
+        <a class="circle" href="{{ project.link_url }}">
+        {% else %}
+        <a class="circle" href="{{ project.url }}">
+        {% endif %}
+            <div>
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.subtitle }}</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endfor %}

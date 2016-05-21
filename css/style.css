@@ -1,10 +1,9 @@
 /* Override some defaults */
-html, body {
-  background-color: #181213;
-  background-image: url("/images/background.jpg");
+body, html {
+  background-image: linear-gradient(to bottom right, rgba(200, 180, 200,1), rgba(150, 180, 150, 1));
   background-attachment: fixed;
 }
-.container > footer p {
+.container > footer p, .nav-container, .center {
   text-align: center; /* center align it with the container */
 }
 h1, h2 {
@@ -13,8 +12,8 @@ h1, h2 {
   display: inline;
 }
 h1 {
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 45px;
+  line-height: 48px;
   color: black;
 
 }
@@ -33,8 +32,6 @@ h2 {
 }
 /* The white background content wrapper */
 .content {
-  background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 6px;
@@ -43,13 +40,43 @@ h2 {
 
 /* Page header tweaks */
 .page-header {
-  background-color: #687;
   padding: 20px 20px 10px;
   margin: 0 -20px 20px;
   border-radius: 5px 5px 0 0;
+  border-bottom: 0px;
 }
-nav {
+.nav-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.navbar-nav {
+  float: none;
+  display: inline-block;
+  width: 100%;
+}
+#main-container {
   text-align: left;
+}
+.row-fluid {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.nav>li>a {
+  color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0,0,0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  margin: 5px 5px;
+  min-width: 100px;
+  text-align: center;
+}
+.nav .big {
+  font-size: 24px;
+}
+.navbar-default .navbar-brand {
+  width: 100%;
 }
 .navbar {
   margin-bottom: 10px;
@@ -60,29 +87,35 @@ nav {
   padding-left: 0;
   margin: 0;
 }
-.navbar-collapse {
-  border-width: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  padding: 0;
-}
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
-  color: #ccc;
+  color: black;
   background-color: inherit;
 }
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover{
+.nav>li>a:hover {
   background-color: #282223;
   text-decoration: none;
   color: #ccc;
 }
 
+.image {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 30%;
+}
+
+.image:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
 .light-over, .navbar-default {
   line-height: 30px;
   margin-top: 17px;
-  color: white;
-  background-color: #161213;
-  opacity: .75;
+  color: black;
   border-width: 0px;
+  background-color: rgba(0,0,0,0);
 }
 
 .hide-links a {
@@ -104,5 +137,79 @@ footer > * {
 @media (min-width: 1200px) {
   .container {
       width: 970px;
+  }
+}
+
+.circle div {
+  width:100%;
+}
+.circle {
+  width: 100%;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0,0,0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin-top: 100px;
+  }
+  .navbar-nav {
+    width: auto;
+  }
+  .image {
+    max-width: none;
+    width: 100%;
+  }
+  .circle {
+    width:100%;
+    background: none;
+    border-style: none;
+  }
+  .circle:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    background-color: rgba(255,255,255,0.1);
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0, 0.1);
+  }
+  .circle div {
+      position: absolute;
+      padding-left:10%;
+      width:80%;
+      padding-top:25%;
+      line-height:1em;
+      text-align:center;
+      color:inherit;
+  }
+}
+
+@media(max-width: 768px) {
+  .circle:hover{
+    background-color: #282223;
+    text-decoration: none;
+    color: #ccc;
+  }
+}
+@media(min-width: 768px) {
+  .circle:hover:after{
+    background-color: #282223;
+    color: #ccc;
+    text-decoration: none;
   }
 }
