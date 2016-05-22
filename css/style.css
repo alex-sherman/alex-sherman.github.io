@@ -1,21 +1,15 @@
-/* Override some defaults */
-body, html {
-  background-image: linear-gradient(to bottom right, rgba(200, 180, 200,1), rgba(150, 180, 150, 1));
-  background-attachment: fixed;
-}
 .container > footer p, .nav-container, .center {
   text-align: center; /* center align it with the container */
 }
 h1, h2 {
   margin: 0;
   padding: 0;
-  display: inline;
+  color: #008A67;
+  margin-bottom: 0.8em;
 }
 h1 {
   font-size: 45px;
   line-height: 48px;
-  color: black;
-
 }
 h1 small {
   font-size: 18px;
@@ -24,7 +18,6 @@ h1 small {
 h2 {
   font-size: 24px;
   line-height: 36px;
-  display: inline;
 }
 .navbar-brand {
   font-size: 24px;
@@ -36,18 +29,33 @@ h2 {
   padding-right: 20px;
   border-radius: 6px;
   padding-bottom: 20px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 
-/* Page header tweaks */
-.page-header {
-  padding: 20px 20px 10px;
-  margin: 0 -20px 20px;
-  border-radius: 5px 5px 0 0;
-  border-bottom: 0px;
+p {
+  margin-bottom: 1em;
 }
+
 .nav-container {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 40px;
+  background-color: #008A67;
+  background-attachment: fixed;
+  color: white;
+  margin-bottom: 40px;
+}
+.nav-container h1 {
+  color: white;
+  display: block;
+  font-size: 3.25em;
+  margin-bottom: 0.1em;
+}
+.nav-container h2 {
+  color: white;
+  display: block;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.1em;
 }
 .navbar-nav {
   float: none;
@@ -62,15 +70,22 @@ h2 {
   margin-left: -15px;
 }
 .nav>li>a {
-  color: black;
+  color: white;
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(0,0,0, 0.1);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 26px;
+  border-radius: 5px;
   margin: 5px 5px;
   min-width: 100px;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transition:.5s;
+}
+.nav>li>a:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: #006D8D;
+  text-decoration: none;
+  transition:.5s;
 }
 .nav .big {
   font-size: 24px;
@@ -90,11 +105,6 @@ h2 {
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a{
   color: black;
   background-color: inherit;
-}
-.nav>li>a:hover {
-  background-color: #282223;
-  text-decoration: none;
-  color: #ccc;
 }
 
 .image {
@@ -124,7 +134,9 @@ h2 {
 .no-underline{
   text-decoration: none;
 }
-
+hr {
+  border-color: black;
+}
 footer {
   text-align: center;
 }
@@ -140,22 +152,30 @@ footer > * {
   }
 }
 
-.circle div {
-  width:100%;
-}
 .circle {
-  width: 100%;
+  width:100%;
+  background: none;
+  border-style: none;
+  border-radius: 10px;
   display: block;
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0,0,0, 0.1);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 26px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background-color: #008A67;
   text-align: center;
+  margin: 5px;
+}
+.circle:hover{
+  background-color: #006D8D;
+  color: #ccc;
+  text-decoration: none;
+}
+.circle div {
+    padding:10%;
+    line-height:1em;
+    text-align:center;  
+    color: white;
+}
+.circle div h2 {
+    color: white;
 }
 
 @media (min-width: 768px) {
@@ -170,46 +190,7 @@ footer > * {
     width: 100%;
   }
   .circle {
-    width:100%;
-    background: none;
-    border-style: none;
-  }
-  .circle:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height:0;
+    height: 0;
     padding-bottom: 100%;
-    background-color: rgba(255,255,255,0.1);
-    -moz-border-radius: 50%; 
-    -webkit-border-radius: 50%; 
-    border-radius: 50%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(0,0,0, 0.1);
-  }
-  .circle div {
-      position: absolute;
-      padding-left:10%;
-      width:80%;
-      padding-top:25%;
-      line-height:1em;
-      text-align:center;
-      color:inherit;
-  }
-}
-
-@media(max-width: 768px) {
-  .circle:hover{
-    background-color: #282223;
-    text-decoration: none;
-    color: #ccc;
-  }
-}
-@media(min-width: 768px) {
-  .circle:hover:after{
-    background-color: #282223;
-    color: #ccc;
-    text-decoration: none;
   }
 }

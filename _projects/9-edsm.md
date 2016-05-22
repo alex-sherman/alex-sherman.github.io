@@ -5,7 +5,8 @@ subtitle: An extendable distributed shared memory framework
 ---
 
 {{ content }}
-
+EDSM
+===========
 [EDSM is available on Github](https://github.com/alex-sherman/edsm) as open source software. This framework was written for a school project while completing my masters with a friend of mine, Peter Den Hartog.
 
 Overview
