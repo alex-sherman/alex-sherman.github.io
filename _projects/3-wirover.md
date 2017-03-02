@@ -4,8 +4,6 @@ title: WiRover
 subtitle: A multi-interface mobile networking platform
 ---
 
-{{ content }}
-
 [WiRover](http://www.wirover.com) is a networking solution for organizations requiring constant connection and reliable bandwidth wherever they are. This is achieved by intelligently leveraging multiple cellular, WiFi, and other networks to create a robust high bandwidth connection. WiRover is developed by a team
 of researchers at the University of Wisconsin Madison under the supervision of professor Suman Banerjee.
 

@@ -4,8 +4,6 @@ title: DBlog
 subtitle: A simple logging framework for Python systems
 ---
 
-{{ content }}
-
 # DBlog
 DBlog is a Python logging library, giving systems the capabability to log data directly to a database in a simple way.
 This project was started after we attempted to use InfluxDB and found it too buggy/complicated and difficult to work with.
