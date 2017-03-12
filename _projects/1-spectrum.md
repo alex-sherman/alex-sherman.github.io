@@ -6,9 +6,9 @@ subtitle: A game engine for Monogame
 
 In my spare time I develop a game engine. The project started when I was in high school and has helped me
 to become the developer I am today. The engine has changed drastically from its beginnings and is getting close
-to a state where I would like to release it. Written entirely in C#, the Spectrum provides a graphics engine,
-physics engine, peer-to-peer networking service and an entity management system. Spectrum is entirely open source,
-and will soon be free to use. However, until I choose a license commercial use is prohibited under copyright law.
+to a state where I would like to release it. Written entirely in C#, Spectrum provides a graphics engine,
+physics engine, a peer-to-peer networking service and an entity management system. Spectrum is entirely open source,
+and will soon be free to use.
 
 [Example](http://defcon.faffgames.com)
 ---
