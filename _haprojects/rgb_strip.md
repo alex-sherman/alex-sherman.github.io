@@ -26,7 +26,7 @@ Here are the things you'll need:
     * [Aliexpress 5m $10-$20](https://www.aliexpress.com/wholesale?SearchText=lpd6803+led+strip+12v&opensearch=true)
 4. [12V DC Power Supply with jack $8](https://www.amazon.com/gp/product/B019Q3U72M/ref=as_li_tl?ie=UTF8&tag=alexsherman04-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B019Q3U72M&linkId=5259a9d3c2527865072df3b3e9678607)
 5. A computer with [Arduino](https://www.arduino.cc/en/main/software), [ESP8266 board configs](https://github.com/esp8266/Arduino#installing-with-boards-manager), [MRPC](https://github.com/alex-sherman/mrpc-esp8266), [EmbeddedJson](https://github.com/alex-sherman/embedded-json), and [ESP8266-LPD6803](https://github.com/alex-sherman/ESP8266-LPD6803) installed
-    * To install the two libraries, first download a zip of the library
+    * To install the libraries, first download a zip of the library
     * Then open Arduino, go to Sketch -> Include Library -> Add .ZIP Library
     * Browse to the downloaded zip files and add them
 

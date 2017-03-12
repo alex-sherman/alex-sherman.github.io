@@ -23,9 +23,9 @@ guides on how to do these yourself.
 
 - [Simple outlet](/haprojects/sonoff.html)
 - [RGB Light Strips](/haprojects/rgb_strip.html)
-- [RGB Light Bulbs](#TODO)
-- [Door buzzer](#TODO)
-- [TV Remote](#TODO)
+- [RGB Light Bulbs (Coming soon)](#TODO)
+- [Door buzzer (Coming soon)](#TODO)
+- [TV Remote (Coming soon)](#TODO)
 
 
 Continuing on, I'll explain how this solution addresses the 3 major problems I have with
