@@ -50,15 +50,16 @@ p {
 }
 
 
-.content img {
-  width: 100%;
+.content img, .content iframe{
+  max-width: 100%;
+  margin: auto;
   margin-top: 20px;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .content img {
-    width: 70%;
-    margin-left: 15%;
+    max-width: 70%;
   }
 }
 

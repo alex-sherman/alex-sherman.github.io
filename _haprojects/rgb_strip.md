@@ -10,6 +10,7 @@ You will need some familiarity with electronics, and some mild soldering skills.
 This project will use a WeMos D1 Mini as the MCU,
 [MRPC](https://github.com/alex-sherman/MRPC#mrpc) to handle all of the networking,
 and an LPD6803 library I wrote to control the LED strip. Here's a quick glance at the end result:
+![Imgur](https://j.gifs.com/lOg7Bj.gif)
 ![Imgur](http://i.imgur.com/HYTMXTv.jpg)
 
 Preparing
