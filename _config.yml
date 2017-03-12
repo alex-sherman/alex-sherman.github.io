@@ -3,3 +3,5 @@ highlighter: pygments
 collections:
   projects:
     output: true
+  haprojects:
+    output: true
