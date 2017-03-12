@@ -22,7 +22,7 @@ end result is a rather consumer grade solution. Here's a list of the things I've
 guides on how to do these yourself.
 
 - [Simple outlet](/haprojects/sonoff.html)
-- [RGB Light Strips](#TODO)
+- [RGB Light Strips](/haprojects/rgb_strip.html)
 - [RGB Light Bulbs](#TODO)
 - [Door buzzer](#TODO)
 - [TV Remote](#TODO)
