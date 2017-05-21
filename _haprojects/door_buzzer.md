@@ -27,9 +27,9 @@ You will need just a few things to get this working:
 
 Door Buzzer Circuit
 =========
-The door buzzer in apartment was incredibly simple, it's just a button that momentarily
+The door buzzer in my apartment is incredibly simple, it's just a button that momentarily
 connects two terminals which signals the door to unlock. The idea is that in addition
-to the button closing the circuit, I'll add this relay in parallel with the button
+to the button closing the circuit, I'll add a relay in parallel with the button
 so that when either the button or relay closes, the circuit will be closed and the buzzer
 will actuate the door lock. I measured the open circuit voltage of my circuit as 24V
 and the closed circuit current around 20mA, just within the safe operating zone of
