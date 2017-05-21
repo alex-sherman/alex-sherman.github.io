@@ -23,8 +23,7 @@ guides on how to do these yourself.
 
 - [Simple outlet](/haprojects/sonoff.html)
 - [RGB Light Strips](/haprojects/rgb_strip.html)
-- [RGB Light Bulbs (Coming soon)](#TODO)
-- [Door buzzer (Coming soon)](#TODO)
+- [Door buzzer](/haprojects/door_buzzer.html)
 - [TV Remote (Coming soon)](#TODO)
 
 
@@ -45,9 +44,6 @@ It can be a bit of a hassle and time sink, so if you're not willing to spend the
 
 If you really do need to go from scratch, start with a good board.
 The [WeMos and accompanying shields](https://www.wemos.cc/product) make a great starting point.
-If you have access to a 3D printer, make an enclosure, it's so nice to
-have this clean, wrapped up project that you can easily mount to something.
-Having clean hardware is definitely a good start, but you still need to program it.
 
 Cleaning up the Code
 ========
@@ -78,8 +74,6 @@ Now if you wanted to invoke this example light service you could use one of the 
     MRPC::rpc("*.light", true);            // C++/ESP8266
     MRPCActivity.mrpc("*.light", true);    // Java/Android
     mrpc.rpc("*.light", true)              // Python
-
-OK so the code might be sort of clean, but what about actually using it?
 
 Making it Useable
 =========
