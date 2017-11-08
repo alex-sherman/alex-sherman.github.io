@@ -85,43 +85,39 @@ async Task AnotherSynchronized(DataType data)
 ```
 These locks are still explicitly not reentrant, they are documented specifically that way. Lastly I propose a new kind of lock, `REAsyncLock` that both works with `async`/`await` and is reentrant (in some way).
 
-REAsyncLock and CallContext Reentrancy
+REAsyncLock and Call Context Reentrancy
 ==========
 I believe we need to define a more granular scope of reentrancy in order to program with locks the same way we did before `async`/`await`. The problem we run into now is that threads are no longer the unit of execution that we must target when designing locks, but rather `Task` and even more specifically the code execution path.
 I propose the following lock implementation which is capable of being reentered from the same code execution path, which need not necessarily be the same thread.
 ```C#
-private string id;
-private SemaphoreSlim sem = new SemaphoreSlim(1);
-public REAsyncLock(string id = null)
+class REAsyncLock
 {
-    this.id = "REAsyncLock." + (id ?? Guid.NewGuid().ToString());
-}
-public async Task DoWithLock(Func<Task> body)
-{
-    bool acquired = false;
-    if(!(((bool?)CallContext.LogicalGetData(id)) ?? false))
+    private AsyncLocal<SemaphoreSlim> currentSemaphore =
+        new AsyncLocal<SemaphoreSlim>() { Value = new SemaphoreSlim(1) };
+
+    public async Task DoWithLock(Func<Task> body)
     {
-        await sem.WaitAsync();
-        CallContext.LogicalSetData(id, true);
-        acquired = true;
-    }
-    try
-    {
-        await body();
-    }
-    finally
-    {
-        if (acquired)
+        SemaphoreSlim currentSem = currentSemaphore.Value;
+        await currentSem.WaitAsync();
+        var nextSem = new SemaphoreSlim(1);
+        currentSemaphore.Value = nextSem;
+        try
         {
-            CallContext.FreeNamedDataSlot(id);
-            sem.Release();
+            await body();
+        }
+        finally
+        {
+            Debug.Assert(nextSem == currentSemaphore.Value);
+            await nextSem.WaitAsync();
+            currentSemaphore.Value = currentSem;
+            currentSem.Release();
         }
     }
 }
 ```
-The interesting mechanism in this lock is the use of `CallContext.LogicalSet/GetData`.
-These functions allow us to store data in the `CallContext` that will flow with the code execution of the running task.
-This means that anything called by `DoWithLock` will see that it already has acquired the lock and skip acquiring the semaphore.
+The interesting mechanism in this lock is the use of `AsyncLocal<>.Value` (suggested by Reddit user [tweq](https://www.reddit.com/user/tweq)).
+This type allows us to store data that will flow with the code execution of the running task across threads.
+Each successive call to `DoWithLock` produces a new semaphore for the children in the `body` function to contend over.
 Unforutantely it follows that we cannot use the nice `using` statment, since the body of the statement would be outside the code execution path we have control over.
 Instead, our examples now become:
 ```C#
@@ -143,4 +139,6 @@ async Task AnotherSynchronized(DataType data)
 }
 ```
 It may not look as pretty as the existing implementations of `AsyncLock`, but it certainly allows for designs that have much higher code reuse by having called functions also reenter locks.
-At the very least I hope that `REAsyncLock` can be used to translate previous uses of C#'s `lock` statement into something that plays nice with TPL.
+There is also a caveat where if a `Task` which has been started inside a `DoWithLock` body and attempts to acquire the same lock after the `DoWithLock` body has completed (meaning it was not awaited) the `Task` will deadlock.
+This can be avoided by making sure all calls to `DoWithLock` are awaited all the way up the call stack.
+While it's not a silver bullet, at the very least I hope that `REAsyncLock` can be used to translate some previous uses of C#'s `lock` statement into something that plays nice with TPL.
