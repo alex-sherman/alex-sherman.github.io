@@ -1,7 +1,10 @@
-highlighter: rouge
-
 collections:
   projects:
     output: true
   haprojects:
     output: true
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false

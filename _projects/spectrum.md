@@ -2,6 +2,7 @@
 layout: default
 title: Spectrum
 subtitle: A game engine for Monogame
+priority: 16
 ---
 
 In my spare time I develop a game engine. The project started when I was in high school and has helped me

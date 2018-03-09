@@ -1,4 +1,5 @@
-{% for project in site.projects %}
+{% assign sorted_projects = (site.projects | sort: 'priority' | reverse) %}
+{% for project in sorted_projects %}
 <div class="row-fluid">
     <div class="circle-container col-xs-12 col-sm-4 col-md-3 hide-links">
         {% if project.link_url %}
