@@ -63,7 +63,7 @@ It skips all the boiler plate, just mark `async` functions with `unsync` and eve
 I addressed both of my gripes with a separate solution:
 - Fire and forget
   - `unsync` does all the event loop acquisition and running behind the scenes
-  - The event loop it uses is **not** the usual, `unsync` makes its own in a **new thread** whose soul purpose
+  - The event loop it uses is **not** the usual, `unsync` makes its own in a **new thread** whose sole purpose
   is to execute `unsync` functions
 - Blocking calls to `result()`
   - `unsync` functions return an `Unfuture` which is a mashup of `asyncio.Future` and `concurrent.Future`
