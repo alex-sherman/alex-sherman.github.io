@@ -10,6 +10,7 @@ h1, h2 {
   padding: 0;
   color: #259054;
   margin-bottom: 0.5em;
+  margin-top: 1em;
 }
 h1 {
   font-size: 45px;
@@ -37,10 +38,16 @@ code {
   font-size: 90%;
   color: #ccc;
   background-color: #333;
-  border-radius: 4px;
 }
-code > span {
-
+pre code {
+  border-radius: 4px;
+  white-space: unset;
+  overflow-x: scroll;
+}
+@media (min-width: 768px) {
+  pre code {
+    white-space: pre-wrap;
+  }
 }
 
 /* The white background content wrapper */
@@ -84,6 +91,7 @@ p {
   display: block;
   font-size: 3.25em;
   margin-bottom: 0.1em;
+  margin-top: 0;
 }
 .nav-container h2 {
   color: #333;
