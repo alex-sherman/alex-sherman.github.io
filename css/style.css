@@ -1,12 +1,15 @@
+body {
+  background-color: #333;
+  color: #ccc;
+}
 .container > footer p, .nav-container, .center {
   text-align: center; /* center align it with the container */
 }
 h1, h2 {
   margin: 0;
   padding: 0;
-  color: #008A67;
+  color: #259054;
   margin-bottom: 0.5em;
-  margin-top: 0.8em;
 }
 h1 {
   font-size: 45px;
@@ -64,20 +67,19 @@ p {
 }
 
 .nav-container {
-  padding: 40px;
-  background-color: #008A67;
+  color: #333;
+  background-color: #259054;
   background-attachment: fixed;
-  color: white;
   margin-bottom: 40px;
 }
 .nav-container h1 {
-  color: white;
+  color: #333;
   display: block;
   font-size: 3.25em;
   margin-bottom: 0.1em;
 }
 .nav-container h2 {
-  color: white;
+  color: #333;
   display: block;
   font-size: 1.5em;
   margin-top: 1em;
@@ -96,7 +98,7 @@ p {
   margin-left: -15px;
 }
 .nav>li>a {
-  color: white;
+  color: #444;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
@@ -109,7 +111,7 @@ p {
 }
 .nav>li>a:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  background-color: #006D8D;
+  background-color: #008A67;
   text-decoration: none;
   transition:.5s;
 }
@@ -188,11 +190,11 @@ footer > * {
   border-radius: 10px;
   display: block;
   width: 100%;
-  background-color: #008A67;
+  background-color: #259054;
   text-align: center;
 }
 .circle:hover{
-  background-color: #006D8D;
+  background-color: #008A67;
   color: #ccc;
   text-decoration: none;
 }
@@ -200,10 +202,10 @@ footer > * {
     padding:10%;
     line-height:1em;
     text-align:center;  
-    color: white;
+    color: #333;
 }
 .circle div h2 {
-    color: white;
+    color: #333;
 }
 
 @media (min-width: 768px) {
