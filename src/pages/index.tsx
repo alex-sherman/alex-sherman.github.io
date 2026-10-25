@@ -1,0 +1,29 @@
+import { DefaultLayout } from '../layouts/DefaultLayout';
+
+export default function IndexPage() {
+  return (
+    <DefaultLayout title="Alex_Sherman" subtitle="Professional developer">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 center">
+          <img src="images/me.jpg" class="image" />
+        </div>
+        <div id="main-container" class="col-xs-12 col-sm-8">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 id="about-me">About Me</h2>
+
+              <p>
+                I'm a passionate developer and tinkerer. I have a master's degree in Computer Engineering from the University
+                of Wisconsin Madison. I have worked in the video game industry and continue to make games in my spare time.
+              </p>
+              <p>
+                My <a href="http://github.com/alex-sherman">Github</a> is full of side projects that vary from libraries for
+                parallelization and serialization to video game engines and home automation/IoT applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </DefaultLayout>
+  );
+}

@@ -1,0 +1,9 @@
+{
+  "name": "alex-sherman.github.io",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run dev.tsx",
+    "build": "bun run build.tsx"
+  }
+}

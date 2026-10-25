@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "jsx",
+    "paths": {
+      "jsx/jsx-runtime": ["./src/jsx-runtime.ts"],
+      "jsx/jsx-dev-runtime": ["./src/jsx-runtime.ts"]
+    }
+  }
+}
