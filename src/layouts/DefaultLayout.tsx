@@ -7,22 +7,23 @@ export interface DefaultLayoutProps {
   title: string;
   subtitle?: string;
   custom_css?: string;
+  activeNav?: 'about' | 'projects' | 'blog';
   children?: any;
 }
 
-export function DefaultLayout({ title, subtitle, custom_css, children }: DefaultLayoutProps) {
+export function DefaultLayout({ title, subtitle, custom_css, activeNav, children }: DefaultLayoutProps) {
   return (
     <>
       {raw('<!doctype html>\n')}
       <html class="no-js" lang="en">
         <Head title={title} custom_css={custom_css} />
         <body>
-          <Header title={title} subtitle={subtitle} />
-          <div class="container">
+          <Header title={title} subtitle={subtitle} activeNav={activeNav} />
+          <main class="container">
             <div class="content">
               {children}
             </div>
-          </div>
+          </main>
           <Footer />
         </body>
       </html>

@@ -25,7 +25,6 @@ export async function buildSite(outDir = 'dist') {
   const tsxGlob = new Glob('**/*.tsx');
   for (const relPath of tsxGlob.scanSync('src/pages')) {
     const fullPath = join(process.cwd(), 'src/pages', relPath);
-    // Bust module cache when rebuilding in dev mode
     const mod = await import(`${fullPath}?t=${Date.now()}`);
     const PageComponent = mod.default;
     if (typeof PageComponent === 'function') {
@@ -45,13 +44,22 @@ export async function buildSite(outDir = 'dist') {
     const urlPrefix = dirPart === '.' ? '' : `/${dirPart}`;
     const entry = parseMarkdownFile(join('src/pages', relPath), urlPrefix);
 
+    const activeNav = dirPart.startsWith('posts')
+      ? 'blog'
+      : dirPart.startsWith('projects') || dirPart.startsWith('haprojects')
+      ? 'projects'
+      : undefined;
+
     const html = String(
       <DefaultLayout
         title={entry.frontmatter.title}
         subtitle={entry.frontmatter.subtitle}
         custom_css={entry.frontmatter.custom_css}
+        activeNav={activeNav}
       >
-        {raw(entry.html)}
+        <article class="markdown-body">
+          {raw(entry.html)}
+        </article>
       </DefaultLayout>
     );
 

@@ -1,23 +1,45 @@
 import { watch } from 'node:fs';
 import { join } from 'node:path';
-import { buildSite } from './build';
 
 const PORT = 4321;
 const clients = new Set<ReadableStreamDefaultController>();
 
-await buildSite();
+async function runBuild() {
+  const proc = Bun.spawn(['bun', 'run', 'build.tsx'], {
+    stdout: 'inherit',
+    stderr: 'inherit',
+  });
+  await proc.exited;
+}
+
+await runBuild();
+
+let building = false;
+let pending = false;
+
+async function triggerBuild() {
+  if (building) {
+    pending = true;
+    return;
+  }
+  building = true;
+  try {
+    do {
+      pending = false;
+      await runBuild();
+    } while (pending);
+    for (const client of clients) {
+      client.enqueue('data: reload\n\n');
+    }
+  } finally {
+    building = false;
+  }
+}
 
 for (const dir of ['src', 'public']) {
-  watch(dir, { recursive: true }, async (_event, filename) => {
+  watch(dir, { recursive: true }, (_event, filename) => {
     if (!filename) return;
-    try {
-      await buildSite();
-      for (const client of clients) {
-        client.enqueue('data: reload\n\n');
-      }
-    } catch (err) {
-      console.error('Build error:', err);
-    }
+    triggerBuild();
   });
 }
 
@@ -65,11 +87,18 @@ Bun.serve({
     if (file.type.includes('text/html')) {
       const html = await file.text();
       return new Response(html.replace('</body>', LIVE_RELOAD_SCRIPT), {
-        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Cache-Control': 'no-store',
+        },
       });
     }
 
-    return new Response(file);
+    return new Response(file, {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
+    });
   },
 });
 

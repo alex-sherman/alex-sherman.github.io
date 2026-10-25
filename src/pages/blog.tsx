@@ -1,50 +1,25 @@
 import { DefaultLayout } from '../layouts/DefaultLayout';
-import { loadMarkdownCollection } from '../content';
+import { getSortedPosts } from '../content';
 import { raw } from '../jsx-runtime';
 
-function parseDateFromSlug(slug: string, frontmatterDate?: string): Date {
-  if (frontmatterDate) return new Date(frontmatterDate);
-  const match = slug.match(/^(\d{4})-(\d{1,2})-(\d{1,2})-/);
-  if (match) {
-    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-  }
-  return new Date(0);
-}
-
-function formatDateToString(date: Date): string {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = date.toLocaleString('en-US', { month: 'short' });
-  const year = date.getFullYear();
-  return `${day} ${month} ${year}`;
-}
-
 export default function BlogPage() {
-  const posts = loadMarkdownCollection('src/pages/posts', '/posts')
-    .map((post) => {
-      const date = parseDateFromSlug(post.slug, post.frontmatter.date);
-      const firstParagraphMatch = post.html.match(/<p>([\s\S]*?)<\/p>/);
-      const excerpt = firstParagraphMatch ? firstParagraphMatch[1] : '';
-      return {
-        title: post.frontmatter.title,
-        href: post.url,
-        date,
-        dateString: formatDateToString(date),
-        excerpt,
-      };
-    })
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+  const posts = getSortedPosts();
 
   return (
-    <DefaultLayout title="Blog" subtitle="Things I write about">
-      {posts.map((post) => (
-        <div class="row-fluid">
-          <div class="col-xs-12 hide-links">
-            <a href={post.href}><h2>{post.title}</h2></a>
-            <div class="date">{post.dateString}</div>
-            <p>{raw(post.excerpt)}</p>
-          </div>
-        </div>
-      ))}
+    <DefaultLayout title="Blog" subtitle="Things I write about" activeNav="blog">
+      <div class="posts-list">
+        {posts.map((post) => (
+          <a class="post-card" href={post.url}>
+            <div class="post-card-top">
+              <h2>{post.frontmatter.title}</h2>
+              <span class="date-badge">{post.dateString}</span>
+            </div>
+            {post.frontmatter.subtitle && <div class="post-subtitle">{post.frontmatter.subtitle}</div>}
+            <p class="post-excerpt">{raw(post.excerpt)}</p>
+            <span class="post-read-more">Read article →</span>
+          </a>
+        ))}
+      </div>
     </DefaultLayout>
   );
 }

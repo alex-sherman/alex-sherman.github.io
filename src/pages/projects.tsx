@@ -3,7 +3,7 @@ import { Projects } from '../components/Projects';
 
 export default function ProjectsPage() {
   return (
-    <DefaultLayout title="Projects" subtitle="Things I've Done">
+    <DefaultLayout title="Projects" subtitle="Things I've Done" activeNav="projects">
       <Projects />
     </DefaultLayout>
   );

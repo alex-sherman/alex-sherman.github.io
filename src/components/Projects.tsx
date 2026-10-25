@@ -1,24 +1,33 @@
-import { loadMarkdownCollection } from '../content';
+import { getSortedProjects } from '../content';
 
-export function Projects() {
-  const projects = loadMarkdownCollection('src/pages/projects', '/projects').sort(
-    (a, b) => (b.frontmatter.priority ?? 0) - (a.frontmatter.priority ?? 0)
-  );
+export interface ProjectsProps {
+  limit?: number;
+}
+
+export function Projects({ limit }: ProjectsProps = {}) {
+  const allProjects = getSortedProjects();
+  const projects = limit ? allProjects.slice(0, limit) : allProjects;
 
   return (
-    <>
-      {projects.map((project) => (
-        <div class="row-fluid">
-          <div class="circle-container col-xs-12 col-sm-4 col-md-3 hide-links">
-            <a class="circle" href={project.frontmatter.link_url ?? project.url}>
-              <div>
-                <h2>{project.frontmatter.title}</h2>
-                <p>{project.frontmatter.subtitle}</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      ))}
-    </>
+    <div class="projects-grid">
+      {projects.map((project) => {
+        const isExternal = Boolean(project.frontmatter.link_url);
+        const href = project.frontmatter.link_url ?? project.url;
+        return (
+          <a
+            class="project-card"
+            href={href}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener' : undefined}
+          >
+            <div class="project-card-header">
+              <h2>{project.frontmatter.title}</h2>
+              <span class="project-card-arrow">{isExternal ? '↗' : '→'}</span>
+            </div>
+            {project.frontmatter.subtitle && <p>{project.frontmatter.subtitle}</p>}
+          </a>
+        );
+      })}
+    </div>
   );
 }

@@ -12,11 +12,13 @@ export function Head({ title, custom_css }: HeadProps) {
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
       <title>{title}</title>
-      <meta name="description" content="" />
+      <meta name="description" content="Alex Sherman - Software Developer" />
       <meta name="author" content="Alex Sherman" />
 
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <link rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
@@ -30,6 +32,9 @@ export function Head({ title, custom_css }: HeadProps) {
       <script src="/dist/js/bootstrap.js"></script>
       <script src="/js/runnify.js"></script>
       <script src="/js/main.js"></script>
+      <script>
+        {raw(`document.addEventListener('DOMContentLoaded', () => { if (window.hljs) hljs.highlightAll(); });`)}
+      </script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E82DRCH4GP"></script>
       <script>
         {raw(`

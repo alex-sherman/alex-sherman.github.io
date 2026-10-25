@@ -20,6 +20,13 @@ export interface MarkdownEntry {
   html: string;
 }
 
+export interface BlogPostEntry extends MarkdownEntry {
+  title: string;
+  date: Date;
+  dateString: string;
+  excerpt: string;
+}
+
 export function parseMarkdownFile(filePath: string, urlPrefix: string): MarkdownEntry {
   const rawText = readFileSync(filePath, 'utf-8').replace(/\r\n/g, '\n');
   const frontmatter: Record<string, any> = {};
@@ -62,4 +69,43 @@ export function loadMarkdownCollection(dir: string, urlPrefix: string): Markdown
     entries.push(parseMarkdownFile(`${dir}/${file}`, urlPrefix));
   }
   return entries;
+}
+
+export function getSortedProjects(): MarkdownEntry[] {
+  return loadMarkdownCollection('src/pages/projects', '/projects').sort(
+    (a, b) => (b.frontmatter.priority ?? 0) - (a.frontmatter.priority ?? 0)
+  );
+}
+
+function parseDateFromSlug(slug: string, frontmatterDate?: string): Date {
+  if (frontmatterDate) return new Date(frontmatterDate);
+  const match = slug.match(/^(\d{4})-(\d{1,2})-(\d{1,2})-/);
+  if (match) {
+    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  }
+  return new Date(0);
+}
+
+function formatDateToString(date: Date): string {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = date.toLocaleString('en-US', { month: 'short' });
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
+
+export function getSortedPosts(): BlogPostEntry[] {
+  return loadMarkdownCollection('src/pages/posts', '/posts')
+    .map((post) => {
+      const date = parseDateFromSlug(post.slug, post.frontmatter.date);
+      const firstParagraphMatch = post.html.match(/<p>([\s\S]*?)<\/p>/);
+      const excerpt = firstParagraphMatch ? firstParagraphMatch[1] : '';
+      return {
+        ...post,
+        title: post.frontmatter.title,
+        date,
+        dateString: formatDateToString(date),
+        excerpt,
+      };
+    })
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
 }
