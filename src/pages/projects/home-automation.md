@@ -20,9 +20,9 @@ and the end result isn't very useable. I think I've come up with a solution that
 end result is a rather consumer grade solution. Here's a list of the things I've automated with this system, and links to
 guides on how to do these yourself.
 
-- [Simple outlet](/haprojects/sonoff.html)
-- [RGB Light Strips](/haprojects/rgb_strip.html)
-- [Door buzzer](/haprojects/door_buzzer.html)
+- [Simple outlet](/haprojects/sonoff)
+- [RGB Light Strips](/haprojects/rgb_strip)
+- [Door buzzer](/haprojects/door_buzzer)
 - [TV Remote (Coming soon)](#TODO)
 
 

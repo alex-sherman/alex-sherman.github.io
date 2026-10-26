@@ -50,7 +50,7 @@ export function parseMarkdownFile(filePath: string, urlPrefix: string): Markdown
   }
 
   const slug = basename(filePath, '.md');
-  const url = `${urlPrefix}/${slug}.html`;
+  const url = `${urlPrefix}/${slug}`;
   const html = Bun.markdown.html(body, { headingIds: true });
 
   return {

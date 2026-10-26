@@ -26,7 +26,7 @@ export default function IndexPage() {
             </strong>
             , where I built the high-performance RPC stack behind{' '}
             <strong class="gemini-word">Gemini</strong> and work on Snap user-space networking, as well as an indie game developer at{' '}
-            <strong class="faff-word">Faff Games</strong>. I earned my master's in Computer Engineering from UW–Madison.
+            <strong class="faff-word">Faff Games</strong>. I earned my master's in Computer Engineering from UW-Madison.
           </p>
           <p>
             I love building fast, low-level systems and simplifying complex workflows—whether that's distributed networking, multiplayer game engines, or developer tools. Check out my <a href="https://github.com/alex-sherman" target="_blank" rel="noopener">GitHub</a> for my open-source libraries in C++, C#, and Python.
@@ -37,7 +37,7 @@ export default function IndexPage() {
       <section class="home-section">
         <div class="section-heading">
           <h2>Featured Projects</h2>
-          <a href="/projects.html" class="section-link">View all projects →</a>
+          <a href="/projects" class="section-link">View all projects →</a>
         </div>
         <Projects limit={3} />
       </section>
@@ -45,7 +45,7 @@ export default function IndexPage() {
       <section class="home-section">
         <div class="section-heading">
           <h2>Recent Posts</h2>
-          <a href="/blog.html" class="section-link">View all posts →</a>
+          <a href="/blog" class="section-link">View all posts →</a>
         </div>
         <div class="posts-list">
           {recentPosts.map((post) => (
