@@ -29,3 +29,4 @@ To keep the editor feeling completely native, writes update the in-memory tree a
 
 * **GitHub Repository:** [github.com/alex-sherman/obsidian-drive-view](https://github.com/alex-sherman/obsidian-drive-view)
 * **Privacy Policy:** [Drive View Privacy Policy](/drive-view/privacy)
+* **Terms of Service:** [Drive View Terms of Service](/drive-view/terms)
