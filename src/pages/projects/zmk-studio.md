@@ -1,6 +1,6 @@
 ---
-title: ZMK Studio
-subtitle: Custom web-based keymap editor for ZMK keyboards
+title: ZMK Studio (Fork)
+subtitle: ZMK Studio web keymap editor with quality-of-life improvements
 link_url: https://zmk.asherman.io
-priority: 48
+priority: 128
 ---
